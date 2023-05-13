@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+  postgres:
+    image: postgres:latest
+    ports:
+      - '5434:5432'
+    environment:
+      - POSTGRES_DB=ecom-product
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - './database/init:/docker-entrypoint-initdb.d'
+  # For local/test environment only (db management)
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080

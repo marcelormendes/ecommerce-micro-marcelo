@@ -1,0 +1,70 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+datasource db {
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
+  extensions = [pgcrypto]
+}
+
+model User {
+  id            String          @id @default(uuid()) @db.Uuid
+  email         String          @unique
+  password      String
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  userDetails   UserDetails?
+  passwordReset PasswordReset[]
+  twoFactorAuth TwoFactorAuth?
+  isActive      Boolean         @default(true)
+}
+
+model UserDetails {
+  id          String   @id @default(uuid())
+  user        User     @relation(fields: [userId], references: [id])
+  userId      String   @unique @db.Uuid
+  firstName   String
+  lastName    String
+  phoneNumber String
+  dob         DateTime
+  address1    String
+  address2    String
+  city        String
+  state       String
+  country     String
+  zipcode     String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model PasswordReset {
+  id        String   @id @default(uuid()) @db.Uuid
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String   @db.Uuid
+  token     String   @unique
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+}
+
+model TwoFactorAuth {
+  id         String       @id @default(uuid()) @db.Uuid
+  user       User         @relation(fields: [userId], references: [id])
+  userId     String       @unique @db.Uuid
+  enabled    Boolean      @default(true)
+  secret     String       @unique
+  createdAt  DateTime     @default(now())
+  BackupCode BackupCode[]
+}
+
+model BackupCode {
+  id              String        @id @default(uuid()) @db.Uuid
+  twoFactorAuth   TwoFactorAuth @relation(fields: [twoFactorAuthId], references: [id])
+  twoFactorAuthId String        @db.Uuid
+  code            String        @unique
+  createdAt       DateTime      @default(now())
+}

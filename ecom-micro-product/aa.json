@@ -1,0 +1,32 @@
+{
+    "userId": "af7c1fe6-d669-414e-b066-e9733f0de7a8",
+    "status": "CREATED",
+    "address1": "1341 Hidden Meadow Drive",
+    "address2": "",
+    "city": "New Effington",
+    "state": "North Dakota",
+    "zip": "57255",
+    "phoneNumber": "701-634-7877",
+    "items": [
+        {
+            "itemId": "1",
+            "quantity": "1"
+        },
+        {
+            "itemId": "1",
+            "quantity": "1"
+        },
+        {
+            "itemId": "1",
+            "quantity": "1"
+        },
+        {
+            "itemId": "1",
+            "quantity": "1"
+        },
+        {
+            "itemId": "1",
+            "quantity": "1"
+        }
+    ]
+}
