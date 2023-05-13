@@ -1,6 +1,6 @@
 # eCommerce Microservices - Marcelo
 
-This project consists of a suite of microservices that together create a robust eCommerce platform. The application is developed using NestJS and TypeScript, with a focus on modular design and scalability. Each service is designed to be independently deployable and scalable, offering high availability and resilience.
+This project consists of a suite of microservices that together create a mini eCommerce platform. The application is developed using NestJS and TypeScript, with a focus on modular design and scalability. Each service is designed to be independently deployable and scalable, offering high availability and resilience.
 
 ## Services
 
