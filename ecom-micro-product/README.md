@@ -53,12 +53,8 @@ Item endpoints:
 12. **Get items by user**: `GET /item/user/{userId}` - Retrieves all items added by a specific user.
 13. **Get recent items**: `GET /item/recent` - Fetches a list of recently added items in the catalog.
 14. **Search items by price range**: `GET /item/price?min={min}&max={max}` - Fetches items within a specified price range.
-
-Checkout endpoints:
 16. **Begin Checkout**: `POST /checkout/begin` - Initiates the checkout process for a given cart remove the quantity of the item from the stock for X minutes.
 17. **Cancel Checkout**: `POST /checkout/cancel` - Cancels an ongoing checkout process for a specified cart add the item back to the stock.
-
-Order endpoints:
 18. **Get All Orders**: `GET /order/all` - Retrieves all orders in the system.
 19. **Get Order By ID**: `GET /order/:id` - Fetches specific order details using the order ID.
 20. **Create Order**: `POST /order` - Creates a new order with the specified details.
